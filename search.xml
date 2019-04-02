@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Matlab的安装及破译]]></title>
     <url>%2F2019%2F04%2F01%2FMatlab%E7%9A%84%E5%AE%89%E8%A3%85%2F</url>
-    <content type="text"><![CDATA[前言– 本着好好学习的原则，这学期的选修课没有选什么“人工智能”等一听起来方向很大就很水的选修课，挑战自我选修了数字图像处理，勇气可嘉。目前还在摸索中，没学到什么特别有用的东西，先把必备软件matlab装上再说。最重要的一步：放上下载链接！！链接:https://pan.baidu.com/s/1NUZQLjtqVNHjVTp3YNy0Cg提取码:9306（版本为2017a，文件内容过大，所以分成了两部分，强烈建议下载之后新建一个文件夹，将两部分解压至一处）]]></content>
+    <content type="text"><![CDATA[##写在前面本着好好学习的原则，这学期的选修课没有选什么“人工智能”等一听起来方向很大就很水的选修课，挑战自我选修了数字图像处理，勇气可嘉。目前还在摸索中，没学到什么特别有用的东西，先把必备软件matlab装上再说。 第一步（最重要的一步）： 放上下载链接！！链接:https://pan.baidu.com/s/1NUZQLjtqVNHjVTp3YNy0Cg提取码:9306（版本为2017a，文件内容过大，所以分成了两部分，强烈建议下载之后新建一个文件夹，将两部分解压至一处） 第二步：点击setup.exe，等待稍许，出现如下界面，选择使用文件安装密钥 第三步：输入文件安装密钥，可在破译文件中找到 第四步：选择合适的位置安装位置，文件较大，不建议使用系统默认盘 第五步：勾选全部产品，等待安装 很久很久之后…… 第六步：（如果没有将将部分解压到同一个文件夹，这个过程会暂停，此时仍需要把part2中的两个文件复制到1所在文件夹）安装完成后，点击bin目录下的matlab.exe，进行软件激活 第七步：选择“在不使用Internet的情况下激活”，与此同时，将破译文件下的license_standalone.lic 复制到 \MATLAB\R2017a\licenses\，netapi32.dll 复制到 \MATLAB\R2017a\bin\win64\ 第八步：输入许可证文件的完整路径，即为刚刚复制的license_standalone.lic 大功告成~耶]]></content>
       <categories>
         <category>Matlab</category>
       </categories>
