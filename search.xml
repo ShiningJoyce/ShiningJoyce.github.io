@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[最大子列和问题]]></title>
+    <url>%2F2019%2F04%2F14%2F%E6%9C%80%E5%A4%A7%E5%AD%90%E5%88%97%E5%92%8C%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[给定K个整数组成的序列，求其中连续子列的最大和，若为负数返回0。 O（n）的做法： #include &lt;bits/stdc++.h&gt; using namespace std; const int maxn = 100005; int a[maxn]; int main() { int n; scanf(&quot;%d&quot;,&amp;n); int ans = 0, tem = 0; for(int i = 1; i &lt;= n; ++i) { scanf(&quot;%d&quot;,&amp;a[i]); tem += a[i]; if(tem &gt; ans) ans = tem; else if(tem &lt; 0) tem = 0; } printf(&quot;%d\n&quot;,ans); return 0; } 思路：如果当前值使得序列总和小于零，那一定跳过该值重新开始序列求和。]]></content>
+      <categories>
+        <category>算法及编程</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[ACM数据结构模板大全（持续更新）]]></title>
     <url>%2F2019%2F04%2F09%2FACM%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%A8%A1%E6%9D%BF%E5%A4%A7%E5%85%A8%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89%2F</url>
     <content type="text"><![CDATA[整理一波实用的C++或Java模板，也算是帮自己复习一遍~线段树、线段树单点修改区间求和模板const int maxn=1005; #define lson l,mid,rt&lt;&lt;1 #define rson mid+1,r,rt&lt;&lt;1|1int sum[maxn&lt;&lt;2],n;void push_up(int rt){ sum[rt]=sum[rt&lt;&lt;1]+sum[rt&lt;&lt;1|1];}void build(int l,int r,int rt)//建树{ if(l==r) { scanf(“%d”,&amp;sum[rt]); return ; } int mid=l+r&gt;&gt;1; build(lson); build(mid+1,r,rt&lt;&lt;1|1); push_up(rt);}void upd(int p,int val,int l,int r,int rt)//更新{ if(l==r) { sum[rt]+=val; return; } int mid =l+r&gt;&gt;1; if(p&lt;=mid) upd(p,val,lson); else upd(p,val,rson); push_up(rt);}int query(int L,int R,int l,int r,int rt)//查询{ if(L&lt;=l&amp;&amp;R&gt;=r) { return sum[rt]; } int mid =l+r&gt;&gt;1; int ret=0; if(L&lt;=mid) ret+=query(L,R,lson); if(R&gt;mid) ret+=query(L,R,rson); return ret;}]]></content>
