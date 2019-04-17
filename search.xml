@@ -67,18 +67,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Welcome to Joyce's]]></title>
-    <url>%2F2019%2F03%2F18%2FWelcome-to-Joyce-s%2F</url>
-    <content type="text"><![CDATA[这里是一名菜到掉渣的大三狗]]></content>
-      <categories>
-        <category>随便写写</category>
-      </categories>
-      <tags>
-        <tag>思想</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Welcome to Joyce's]]></title>
+    <title><![CDATA[两个有序链表的合并]]></title>
     <url>%2F2019%2F03%2F18%2F%E5%90%88%E5%B9%B6%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%2F</url>
     <content type="text"><![CDATA[两个有序链表的合并 typedef int ElementType;typedef struct Node *PtrToNode;struct Node { ElementType Data; PtrToNode Next;};typedef PtrToNode List;List Read(){ int n; scanf(“%d”,&amp;n); List L = (List)malloc(sizeof(PtrToNode)); L-&gt;Next = NULL; List r = L; for(int i=1;i&lt;=n;i++) { List tem = (List)malloc(sizeof(Node)); scanf(“%d”,&amp;(tem-&gt;Data)); r-&gt;Next = tem; r = tem; } r-&gt;Next = NULL; return L;}void Print( List L )//空表输出NULL{ if(!L-&gt;Next) printf(“NULL\n”); else { while(L-&gt;Next) { printf(“%d “,L-&gt;Next-&gt;Data); L = L-&gt;Next; } printf(“\n”); }}List Merge( List L1, List L2 ){ List L = (List)malloc(sizeof(PtrToNode)); List pa = L1-&gt;Next; List pb = L2-&gt;Next; List pc = L; while(pa &amp;&amp; pb) { if(pa-&gt;Data &lt;= pb-&gt;Data) { pc-&gt;Next = pa; pa = pa-&gt;Next; } else { pc-&gt;Next = pb; pb = pb-&gt;Next; } pc = pc-&gt;Next; } while(pa) { pc-&gt;Next = pa; pc = pc-&gt;Next; pa = pa-&gt;Next; } while(pb) { pc-&gt;Next = pb; pc = pc-&gt;Next; pb = pb-&gt;Next; } L1-&gt;Next = NULL; L2-&gt;Next = NULL; return L;}int main(){ List L1, L2, L; L1 = Read(); L2 = Read(); L = Merge(L1, L2); Print(L); Print(L1); Print(L2); return 0;}]]></content>
       <categories>
