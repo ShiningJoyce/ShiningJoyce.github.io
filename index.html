@@ -1351,14 +1351,17 @@
 
       
         
-          
-            <p>两个有序链表的合并</p>
-<p>typedef int ElementType;<br>typedef struct Node *PtrToNode;<br>struct Node {<br>    ElementType Data;<br>    PtrToNode   Next;<br>};<br>typedef PtrToNode List;<br>List Read()<br>{<br>    int n;<br>    scanf(“%d”,&amp;n);<br>    List L = (List)malloc(sizeof(PtrToNode));<br>    L-&gt;Next = NULL;<br>    List r = L;<br>    for(int i=1;i&lt;=n;i++)<br>    {<br>        List tem = (List)malloc(sizeof(Node));<br>        scanf(“%d”,&amp;(tem-&gt;Data));<br>        r-&gt;Next = tem;<br>        r = tem;<br>    }<br>    r-&gt;Next = NULL;<br>    return L;<br>}<br>void Print( List L )//空表输出NULL<br>{<br>    if(!L-&gt;Next) printf(“NULL\n”);<br>    else<br>    {<br>        while(L-&gt;Next)<br>        {<br>            printf(“%d “,L-&gt;Next-&gt;Data);<br>            L = L-&gt;Next;<br>        }<br>        printf(“\n”);<br>    }<br>}<br>List Merge( List L1, List L2 )<br>{<br>    List L = (List)malloc(sizeof(PtrToNode));<br>    List pa = L1-&gt;Next;<br>    List pb = L2-&gt;Next;<br>    List pc = L;<br>    while(pa &amp;&amp; pb)<br>    {<br>        if(pa-&gt;Data &lt;= pb-&gt;Data)<br>        {<br>            pc-&gt;Next = pa;<br>            pa = pa-&gt;Next;<br>        }<br>        else<br>        {<br>            pc-&gt;Next = pb;<br>            pb = pb-&gt;Next;<br>        }<br>        pc = pc-&gt;Next;<br>    }<br>    while(pa)<br>    {<br>        pc-&gt;Next = pa;<br>        pc = pc-&gt;Next;<br>        pa = pa-&gt;Next;<br>    }<br>    while(pb)<br>    {<br>        pc-&gt;Next = pb;<br>        pc = pc-&gt;Next;<br>        pb = pb-&gt;Next;<br>    }<br>    L1-&gt;Next = NULL;<br>    L2-&gt;Next = NULL;<br>    return L;<br>}<br>int main()<br>{<br>    List L1, L2, L;<br>    L1 = Read();<br>    L2 = Read();<br>    L = Merge(L1, L2);<br>    Print(L);<br>    Print(L1);<br>    Print(L2);<br>    return 0;<br>}</p>
-
-          
+          <p>两个有序链表的合并<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/18/合并有序链表/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     

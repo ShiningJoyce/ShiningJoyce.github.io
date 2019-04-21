@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Joyce‘s Blog">
 <meta property="og:description" content="给定K个整数组成的序列，求其中连续子列的最大和，若为负数返回0。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-14T01:57:15.098Z">
+<meta property="og:updated_time" content="2019-04-21T01:23:18.439Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="最大子列和问题">
 <meta name="twitter:description" content="给定K个整数组成的序列，求其中连续子列的最大和，若为负数返回0。">
@@ -418,27 +418,8 @@
       
         <p>给定K个整数组成的序列，求其中连续子列的最大和，若为负数返回0。</p>
 <a id="more"></a>
-<p>O（n）的做法：</p>
-<pre><code>#include &lt;bits/stdc++.h&gt;
-using namespace std;
-const int maxn = 100005;
-int a[maxn];
-int main()
-{
-    int n;
-    scanf(&quot;%d&quot;,&amp;n);
-    int ans = 0, tem = 0;
-    for(int i = 1; i &lt;= n; ++i)
-    {
-        scanf(&quot;%d&quot;,&amp;a[i]);
-        tem += a[i];
-        if(tem &gt; ans) ans = tem;
-        else if(tem &lt; 0) tem = 0;
-    }
-    printf(&quot;%d\n&quot;,ans);
-    return 0;
-}
-</code></pre><p>思路：如果当前值使得序列总和小于零，那一定跳过该值重新开始序列求和。</p>
+<p>O（n）的做法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn = 100005;</span><br><span class="line">int a[maxn];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    int ans = 0, tem = 0;</span><br><span class="line">    for(int i = 1; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        scanf(&quot;%d&quot;,&amp;a[i]);</span><br><span class="line">        tem += a[i];</span><br><span class="line">        if(tem &gt; ans) ans = tem;</span><br><span class="line">        else if(tem &lt; 0) tem = 0;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d\n&quot;,ans);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>思路：如果当前值使得序列总和小于零，那一定跳过该值重新开始序列求和。</p>
 
       
     </div>

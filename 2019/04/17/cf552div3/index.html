@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Joyce‘s Blog">
 <meta property="og:description" content="写在前面就业指导课需要交简历啊，在上面吹了一波经常参加cf、leetcode等竞赛，于是不得不参加几场意思意思啊……大半年没打cf了，瞄了眼分数，掉的惨不忍睹呜呜呜为了这次cf熬到了十二点断网，只看了四题，剩下的估摸着也不会，补题是不可能的，最多C、D两题再看看大佬们的解法，学习思路">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-17T15:19:51.940Z">
+<meta property="og:updated_time" content="2019-04-21T01:17:57.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Codeforces Round">
 <meta name="twitter:description" content="写在前面就业指导课需要交简历啊，在上面吹了一波经常参加cf、leetcode等竞赛，于是不得不参加几场意思意思啊……大半年没打cf了，瞄了眼分数，掉的惨不忍睹呜呜呜为了这次cf熬到了十二点断网，只看了四题，剩下的估摸着也不会，补题是不可能的，最多C、D两题再看看大佬们的解法，学习思路">
@@ -420,204 +420,13 @@
 <a id="more"></a>
 <hr>
 <h2 id="A-Restoring-Three-Numbers"><a href="#A-Restoring-Three-Numbers" class="headerlink" title="A. Restoring Three Numbers"></a>A. Restoring Three Numbers</h2><p>题意：给你四个数，a+b，a+c，b+c，a+b+c，（abc都为正数，可以相等）让你找出满足条件的a、b、c的值，排名不分先后</p>
-<p>解答：用带我入坑的大佬的话说就是“人尽皆知傻逼题”<br>找出四个数中最大的数，减去其他三个就ok了了<br><code>#include &lt;bits/stdc++.h&gt;
-using namespace std;
-int main()
-{
-    int a[6];
-    int maxn = 0,flag = 0;
-    for(int i = 1;i &lt;= 4;i++)
-    {
-        scanf(&quot;%d&quot;,&amp;a[i]);
-        if(a[i] &gt; maxn)
-        {
-            maxn = a[i];flag = i;
-        }
-    }
-    int cnt = 0;
-    for(int i = 1;i&lt;=4;i++)
-    {
-        if(i!=flag)
-        {
-            printf(&quot;%d&quot;,maxn-a[i]);
-            cnt++;
-            if(cnt&lt;=2) printf(&quot; &quot;);
-        }
-    }
-    printf(&quot;\n&quot;);
-    return 0;
-}</code></p>
+<p>解答：用带我入坑的大佬的话说就是“人尽皆知傻逼题”<br>找出四个数中最大的数，减去其他三个就ok了了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int a[6];</span><br><span class="line">    int maxn = 0,flag = 0;</span><br><span class="line">    for(int i = 1;i &lt;= 4;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        scanf(&quot;%d&quot;,&amp;a[i]);</span><br><span class="line">        if(a[i] &gt; maxn)</span><br><span class="line">        &#123;</span><br><span class="line">            maxn = a[i];flag = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    int cnt = 0;</span><br><span class="line">    for(int i = 1;i&lt;=4;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(i!=flag)</span><br><span class="line">        &#123;</span><br><span class="line">            printf(&quot;%d&quot;,maxn-a[i]);</span><br><span class="line">            cnt++;</span><br><span class="line">            if(cnt&lt;=2) printf(&quot; &quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="B-Make-Them-Equal"><a href="#B-Make-Them-Equal" class="headerlink" title="B. Make Them Equal"></a>B. Make Them Equal</h2><p>题意：给定一个序列，让其中的每一个数通过+x，-x，或不变三种方式变成同一个数，求最小的非负数x，不存在输出-1</p>
-<p>解决：数列中超过三种数肯定是错的，所以先用set求不同数的个数<br>如果只有一种数，每个数不变就好，答案为0；<br>两种，有两个情况，他们有中位数，直接中间的数减去小的数，没有就只能是两个数的差值；<br>三种，只有等差数列才满足条件<br>   <code>#include &lt;bits/stdc++.h&gt;
-using namespace std;
-const int maxn = 105;
-int main()
-{
-    int n,tem;
-    int num[5];
-    scanf(&quot;%d&quot;,&amp;n);
-    int a = 0,b = 0,c = 0;
-    set&lt;int&gt; s;
-    set&lt;int&gt; ::iterator it;
-    for(int i = 1;i &lt;= n;i++)
-    {
-        scanf(&quot;%d&quot;,&amp;tem);
-        s.insert(tem);
-    }
-    int x = s.size();
-    if(x&gt;3) printf(&quot;-1\n&quot;);
-    else if(x == 1) printf(&quot;0\n&quot;);
-    else
-    {
-        int i = 1;
-        for(it=s.begin();it!=s.end();it++)
-        {
-            num[i++] = *it;
-        }
-        if(x == 2)
-        {
-            int sum = num[1]+num[2];
-            if(sum%2==0) printf(&quot;%d\n&quot;,sum/2-num[1]);
-            else printf(&quot;%d\n&quot;,num[2]-num[1]);
-        }
-        else
-        {
-            int sum = num[1]+num[3];
-            if(sum == num[2]*2) printf(&quot;%d&quot;,num[2]-num[1]);
-            else printf(&quot;-1\n&quot;);
-        }
-    }
-    return 0;
-}</code></p>
+<p>解决：数列中超过三种数肯定是错的，所以先用set求不同数的个数<br>如果只有一种数，每个数不变就好，答案为0；<br>两种，有两个情况，他们有中位数，直接中间的数减去小的数，没有就只能是两个数的差值；<br>三种，只有等差数列才满足条件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"> #include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn = 105;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n,tem;</span><br><span class="line">    int num[5];</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    int a = 0,b = 0,c = 0;</span><br><span class="line">    set&lt;int&gt; s;</span><br><span class="line">    set&lt;int&gt; ::iterator it;</span><br><span class="line">    for(int i = 1;i &lt;= n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        scanf(&quot;%d&quot;,&amp;tem);</span><br><span class="line">        s.insert(tem);</span><br><span class="line">    &#125;</span><br><span class="line">    int x = s.size();</span><br><span class="line">    if(x&gt;3) printf(&quot;-1\n&quot;);</span><br><span class="line">    else if(x == 1) printf(&quot;0\n&quot;);</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        int i = 1;</span><br><span class="line">        for(it=s.begin();it!=s.end();it++)</span><br><span class="line">        &#123;</span><br><span class="line">            num[i++] = *it;</span><br><span class="line">        &#125;</span><br><span class="line">        if(x == 2)</span><br><span class="line">        &#123;</span><br><span class="line">            int sum = num[1]+num[2];</span><br><span class="line">            if(sum%2==0) printf(&quot;%d\n&quot;,sum/2-num[1]);</span><br><span class="line">            else printf(&quot;%d\n&quot;,num[2]-num[1]);</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            int sum = num[1]+num[3];</span><br><span class="line">            if(sum == num[2]*2) printf(&quot;%d&quot;,num[2]-num[1]);</span><br><span class="line">            else printf(&quot;-1\n&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="C-Gourmet-Cat"><a href="#C-Gourmet-Cat" class="headerlink" title="C. Gourmet Cat"></a>C. Gourmet Cat</h2><p>这一题当时思索了一下，先跳过去写D，然后再重新思考，交题的时候刚好断网，换卡开热点惨兮兮<br>题意：一只猫从星期一到星期天每天固定只吃1 2 3 1 3 2 1类食物，三类食物分别有a、b、c数量，主人想出去旅游，从星期几开始无所谓，问这只贵气的猫最多能撑多久</p>
-<p>解答：数据比较大啊……(1≤a,b,c≤7⋅10^8)不能纯暴力。可以看出每周1、2、3类食物消耗的量分别是3、2、2，于是我么你先用a、b、c处以3、2、2，看看哪种食物最不能撑<br>然后分别多留出一周，分三种情况暴力处理从一周每一天开始的情况，求出坚持最大天数才使三类存粮最慢消耗为负数<br><code>#include &lt;bits/stdc++.h&gt;
-using namespace std;
-const int maxn = 200005;
-int main()
-{
-    int n,a,b,c;
-    int s[8][15]={
-    {1,2,3,1,3,2,1,1,2,3,1,3,2,1},
-    {2,3,1,3,2,1,1,2,3,1,3,2,1,1},
-    {3,1,3,2,1,1,2,3,1,3,2,1,1,2},
-    {1,3,2,1,1,2,3,1,3,2,1,1,2,3},
-    {3,2,1,1,2,3,1,3,2,1,1,2,3,1},
-    {2,1,1,2,3,1,3,2,1,1,2,3,1,3},
-    {1,1,2,3,1,3,2,1,1,2,3,1,3,2}
-    };
-    scanf(&quot;%d %d %d&quot;,&amp;a,&amp;b,&amp;c);
-    int x,y,z;
-    x = a/3;
-    y = b/2;
-    z = c/2;
-    int ans = 0;
-    if(x&lt;=y&amp;&amp;x&lt;=z)
-    {
-        x--;
-        ans+=x*7;
-        a-=3*x;b-=2*x;c-=2*x;
-        int ma=0;
-        for(int i=0;i&lt;7;i++)
-        {
-            int cnt=0;
-            x=a,y=b,z=c;
-            for(int j=0;j&lt;14;j++)
-            {
-                if(s[i][j]==1) x--;
-                else if(s[i][j]==2) y--;
-                else if(s[i][j]==3) z--;
-                if(y&lt;0||x&lt;0||z&lt;0) break;
-                cnt++;
-            }
-            ma=max(ma,cnt);
-        }
-        ans+=ma;
-    }
-    else if(y&lt;x&amp;&amp;y&lt;z)
-    {
-        y--;
-        ans+=y*7;
-        a-=3*y;b-=2*y;c-=2*y;
-        int ma=0;
-        for(int i=0;i&lt;7;i++)
-        {
-            int cnt=0;
-            x=a,y=b,z=c;
-            for(int j=0;j&lt;14;j++)
-            {
-                if(s[i][j]==1) x--;
-                else if(s[i][j]==2) y--;
-                else if(s[i][j]==3) z--;
-                if(y&lt;0||x&lt;0||z&lt;0) break;
-                cnt++;
-            }
-            ma=max(ma,cnt);
-        }
-        ans+=ma;
-    }
-    else
-    {
-        z--;
-        ans+=z*7;
-        a-=3*z;b-=2*z;c-=2*z;
-        int ma=0;
-        for(int i=0;i&lt;7;i++)
-        {
-            int cnt=0;
-            x=a,y=b,z=c;
-            for(int j=0;j&lt;14;j++)
-            {
-                if(s[i][j]==1) x--;
-                else if(s[i][j]==2) y--;
-                else if(s[i][j]==3) z--;
-                if(y&lt;0||x&lt;0||z&lt;0) break;
-                cnt++;
-            }
-            ma=max(ma,cnt);
-        }
-        ans+=ma;
-    }
-    printf(&quot;%d\n&quot;,ans);
-    return 0;
-}</code></p>
+<p>解答：数据比较大啊……(1≤a,b,c≤7⋅10^8)不能纯暴力。可以看出每周1、2、3类食物消耗的量分别是3、2、2，于是我么你先用a、b、c处以3、2、2，看看哪种食物最不能撑<br>然后分别多留出一周，分三种情况暴力处理从一周每一天开始的情况，求出坚持最大天数才使三类存粮最慢消耗为负数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn = 200005;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n,a,b,c;</span><br><span class="line">    int s[8][15]=&#123;</span><br><span class="line">    &#123;1,2,3,1,3,2,1,1,2,3,1,3,2,1&#125;,</span><br><span class="line">    &#123;2,3,1,3,2,1,1,2,3,1,3,2,1,1&#125;,</span><br><span class="line">    &#123;3,1,3,2,1,1,2,3,1,3,2,1,1,2&#125;,</span><br><span class="line">    &#123;1,3,2,1,1,2,3,1,3,2,1,1,2,3&#125;,</span><br><span class="line">    &#123;3,2,1,1,2,3,1,3,2,1,1,2,3,1&#125;,</span><br><span class="line">    &#123;2,1,1,2,3,1,3,2,1,1,2,3,1,3&#125;,</span><br><span class="line">    &#123;1,1,2,3,1,3,2,1,1,2,3,1,3,2&#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    scanf(&quot;%d %d %d&quot;,&amp;a,&amp;b,&amp;c);</span><br><span class="line">    int x,y,z;</span><br><span class="line">    x = a/3;</span><br><span class="line">    y = b/2;</span><br><span class="line">    z = c/2;</span><br><span class="line">    int ans = 0;</span><br><span class="line">    if(x&lt;=y&amp;&amp;x&lt;=z)</span><br><span class="line">    &#123;</span><br><span class="line">        x--;</span><br><span class="line">        ans+=x*7;</span><br><span class="line">        a-=3*x;b-=2*x;c-=2*x;</span><br><span class="line">        int ma=0;</span><br><span class="line">        for(int i=0;i&lt;7;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            int cnt=0;</span><br><span class="line">            x=a,y=b,z=c;</span><br><span class="line">            for(int j=0;j&lt;14;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                if(s[i][j]==1) x--;</span><br><span class="line">                else if(s[i][j]==2) y--;</span><br><span class="line">                else if(s[i][j]==3) z--;</span><br><span class="line">                if(y&lt;0||x&lt;0||z&lt;0) break;</span><br><span class="line">                cnt++;</span><br><span class="line">            &#125;</span><br><span class="line">            ma=max(ma,cnt);</span><br><span class="line">        &#125;</span><br><span class="line">        ans+=ma;</span><br><span class="line">    &#125;</span><br><span class="line">    else if(y&lt;x&amp;&amp;y&lt;z)</span><br><span class="line">    &#123;</span><br><span class="line">        y--;</span><br><span class="line">        ans+=y*7;</span><br><span class="line">        a-=3*y;b-=2*y;c-=2*y;</span><br><span class="line">        int ma=0;</span><br><span class="line">        for(int i=0;i&lt;7;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            int cnt=0;</span><br><span class="line">            x=a,y=b,z=c;</span><br><span class="line">            for(int j=0;j&lt;14;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                if(s[i][j]==1) x--;</span><br><span class="line">                else if(s[i][j]==2) y--;</span><br><span class="line">                else if(s[i][j]==3) z--;</span><br><span class="line">                if(y&lt;0||x&lt;0||z&lt;0) break;</span><br><span class="line">                cnt++;</span><br><span class="line">            &#125;</span><br><span class="line">            ma=max(ma,cnt);</span><br><span class="line">        &#125;</span><br><span class="line">        ans+=ma;</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        z--;</span><br><span class="line">        ans+=z*7;</span><br><span class="line">        a-=3*z;b-=2*z;c-=2*z;</span><br><span class="line">        int ma=0;</span><br><span class="line">        for(int i=0;i&lt;7;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            int cnt=0;</span><br><span class="line">            x=a,y=b,z=c;</span><br><span class="line">            for(int j=0;j&lt;14;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                if(s[i][j]==1) x--;</span><br><span class="line">                else if(s[i][j]==2) y--;</span><br><span class="line">                else if(s[i][j]==3) z--;</span><br><span class="line">                if(y&lt;0||x&lt;0||z&lt;0) break;</span><br><span class="line">                cnt++;</span><br><span class="line">            &#125;</span><br><span class="line">            ma=max(ma,cnt);</span><br><span class="line">        &#125;</span><br><span class="line">        ans+=ma;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d\n&quot;,ans);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="D-Walking-Robot"><a href="#D-Walking-Robot" class="headerlink" title="D. Walking Robot"></a>D. Walking Robot</h2><p>题意：一个机器人要从0走到n，它拥有b节普通电池和a节太阳能蓄力电池，每走一步路需要消耗一节电池，这段路上另外有个数组si表示i-1到i处是否有太阳，为1表示有太阳，有阳光的话可以给不在使用的太阳能蓄力电池充电，求小机器人最多能走几步（n封顶）</p>
-<p>解答:一遍模拟，精髓就在于一定要先用太阳能电池，其他没啥了<br><code>#include &lt;bits/stdc++.h&gt;
-using namespace std;
-const int maxn = 200005;
-int main()
-{
-    int n,a,b,x,y;
-    int s[maxn];
-    scanf(&quot;%d %d %d&quot;,&amp;n,&amp;a,&amp;b);
-    x = a; y = b;
-    for(int i = 1;i &lt;= n;i++)
-    {
-        scanf(&quot;%d&quot;,&amp;s[i]);
-    }
-    int flag = -1;
-    for(int i = 0;i &lt; n; i++)
-    {
-        if(y&lt;b&amp;&amp;x&gt;0&amp;&amp;s[i+1]==1)
-        {
-            y++;x--;
-        }
-        else if(y&gt;0)
-        {
-            y--;
-        }
-        else if(x&gt;0)
-        {
-            x--;
-        }
-        else
-        {
-            flag = i;break;
-        }
-    }
-    if(flag == -1) printf(&quot;%d\n&quot;,n);
-    else    printf(&quot;%d\n&quot;,flag);
-    return 0;
-}</code></p>
+<p>解答:一遍模拟，精髓就在于一定要先用太阳能电池，其他没啥了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const int maxn = 200005;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n,a,b,x,y;</span><br><span class="line">    int s[maxn];</span><br><span class="line">    scanf(&quot;%d %d %d&quot;,&amp;n,&amp;a,&amp;b);</span><br><span class="line">    x = a; y = b;</span><br><span class="line">    for(int i = 1;i &lt;= n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        scanf(&quot;%d&quot;,&amp;s[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    int flag = -1;</span><br><span class="line">    for(int i = 0;i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(y&lt;b&amp;&amp;x&gt;0&amp;&amp;s[i+1]==1)</span><br><span class="line">        &#123;</span><br><span class="line">            y++;x--;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(y&gt;0)</span><br><span class="line">        &#123;</span><br><span class="line">            y--;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(x&gt;0)</span><br><span class="line">        &#123;</span><br><span class="line">            x--;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            flag = i;break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(flag == -1) printf(&quot;%d\n&quot;,n);</span><br><span class="line">    else    printf(&quot;%d\n&quot;,flag);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>现在该看剧睡觉啦，等之后有空研究大佬们思路的话，再过来补充~~~</p>
 
       
