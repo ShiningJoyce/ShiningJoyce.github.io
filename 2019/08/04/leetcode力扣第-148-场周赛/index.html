@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="比赛,">
 
 
 
@@ -86,17 +86,20 @@
 
 
 
-<meta name="description" content="Better me">
-<meta name="keywords" content="菜">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Joyce‘s Blog">
-<meta property="og:url" content="http://ShiningJoyce.coding.me/tags/计算机系统结构/index.html">
+<meta name="description" content="5148. 二叉树着色游戏题意：给你一个二叉树，第一个人在结点X涂上自己的颜色，第二个人另外一点涂上另一个颜色，之后每个人只能涂自己已经涂过的结点的相邻结点（父结点、子结点），轮流来，谁涂得多谁赢。问能否确保第二个人赢。 解答：就是求出以X结点为分割线的三个部分（左儿子家族，右儿子，父亲那边）的结点数，确保其中一个部分大于剩下的两部分+1，或者直接大于n/2，就可以断掉那条生路，保证赢。">
+<meta name="keywords" content="比赛">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode力扣第 148 场周赛">
+<meta property="og:url" content="http://ShiningJoyce.coding.me/2019/08/04/leetcode力扣第-148-场周赛/index.html">
 <meta property="og:site_name" content="Joyce‘s Blog">
-<meta property="og:description" content="Better me">
+<meta property="og:description" content="5148. 二叉树着色游戏题意：给你一个二叉树，第一个人在结点X涂上自己的颜色，第二个人另外一点涂上另一个颜色，之后每个人只能涂自己已经涂过的结点的相邻结点（父结点、子结点），轮流来，谁涂得多谁赢。问能否确保第二个人赢。 解答：就是求出以X结点为分割线的三个部分（左儿子家族，右儿子，父亲那边）的结点数，确保其中一个部分大于剩下的两部分+1，或者直接大于n/2，就可以断掉那条生路，保证赢。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://shiningjoyce.coding.me/images/leetcode148.png">
+<meta property="og:updated_time" content="2019-08-04T15:12:09.681Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Joyce‘s Blog">
-<meta name="twitter:description" content="Better me">
+<meta name="twitter:title" content="leetcode力扣第 148 场周赛">
+<meta name="twitter:description" content="5148. 二叉树着色游戏题意：给你一个二叉树，第一个人在结点X涂上自己的颜色，第二个人另外一点涂上另一个颜色，之后每个人只能涂自己已经涂过的结点的相邻结点（父结点、子结点），轮流来，谁涂得多谁赢。问能否确保第二个人赢。 解答：就是求出以X结点为分割线的三个部分（左儿子家族，右儿子，父亲那边）的结点数，确保其中一个部分大于剩下的两部分+1，或者直接大于n/2，就可以断掉那条生路，保证赢。">
+<meta name="twitter:image" content="http://shiningjoyce.coding.me/images/leetcode148.png">
 
 
 
@@ -126,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://ShiningJoyce.coding.me/tags/计算机系统结构/">
+  <link rel="canonical" href="http://ShiningJoyce.coding.me/2019/08/04/leetcode力扣第-148-场周赛/">
 
 
 
 
 
-  <title>标签: 计算机系统结构 | Joyce‘s Blog</title>
+  <title>leetcode力扣第 148 场周赛 | Joyce‘s Blog</title>
   
 
 
@@ -151,7 +154,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -297,52 +300,192 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>计算机系统结构<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://ShiningJoyce.coding.me/2019/08/04/leetcode力扣第-148-场周赛/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joyce">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joyce‘s Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/04/02/XTU计算机系统结构期末复习/" itemprop="url">
-              
-                <span itemprop="name">XTU计算机系统结构期末复习</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">leetcode力扣第 148 场周赛</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-02T15:13:59+08:00" content="2019-04-02">
-          04-02
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-04T22:58:07+08:00">
+                2019-08-04
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法及编程/" itemprop="url" rel="index">
+                    <span itemprop="name">算法及编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/04/leetcode力扣第-148-场周赛/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/04/leetcode力扣第-148-场周赛/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="5148-二叉树着色游戏"><a href="#5148-二叉树着色游戏" class="headerlink" title="5148. 二叉树着色游戏"></a>5148. 二叉树着色游戏</h2><p>题意：给你一个二叉树，第一个人在结点X涂上自己的颜色，第二个人另外一点涂上另一个颜色，之后每个人只能涂自己已经涂过的结点的相邻结点（父结点、子结点），轮流来，谁涂得多谁赢。问能否确保第二个人赢。</p>
+<p>解答：就是求出以X结点为分割线的三个部分（左儿子家族，右儿子，父亲那边）的结点数，确保其中一个部分大于剩下的两部分+1，或者直接大于n/2，就可以断掉那条生路，保证赢。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for a binary tree node.</span><br><span class="line"> * struct TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode *left;</span><br><span class="line"> *     TreeNode *right;</span><br><span class="line"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int getnum(TreeNode* root)//求子树结点数</span><br><span class="line">    &#123;</span><br><span class="line">        if(!root) return 0;</span><br><span class="line">        else return getnum(root-&gt;left)+getnum(root-&gt;right)+1;</span><br><span class="line">    &#125;</span><br><span class="line">    void dfs(TreeNode* root,int x,int &amp;ls,int &amp;rs)</span><br><span class="line">    &#123;</span><br><span class="line">        if(!root) return;</span><br><span class="line">        if(root-&gt;val==x)</span><br><span class="line">        &#123;</span><br><span class="line">            ls=getnum(root-&gt;left);</span><br><span class="line">            rs=getnum(root-&gt;right);</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            dfs(root-&gt;left,x,ls,rs);</span><br><span class="line">            dfs(root-&gt;right,x,ls,rs);</span><br><span class="line">        &#125;    </span><br><span class="line">    &#125;</span><br><span class="line">    bool btreeGameWinningMove(TreeNode* root, int n, int x) &#123;</span><br><span class="line">        int ls,rs;</span><br><span class="line">        dfs(root,x,ls,rs);</span><br><span class="line">        //三种划分，左儿子家族个数，右儿子，祖先那边，保证任意一种多于其他两种的和+1就必然成功</span><br><span class="line">        int re=n-ls-rs-1;</span><br><span class="line">        if(ls&gt;(rs+re+1)||rs&gt;(ls+re+1)||re&gt;(ls+rs+1)) return true;</span><br><span class="line">        else return false;</span><br><span class="line">        //return max(max(ls,rs),n-ls-rs-1)&gt;(n&gt;&gt;1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>测试样例：<br>[1,3,null,2,4,null,null,5,6,7]<br>7<br>3<br>图示如下，显然3结点的右子树结点个数多于一半，第二个人堵住右儿子即可赢得比赛。<br><img src="/images/leetcode148.png" alt></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/比赛/" rel="tag"># 比赛</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/17/cf552div3/" rel="next" title="Codeforces 552 (Div. 3)">
+                <i class="fa fa-chevron-left"></i> Codeforces 552 (Div. 3)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -350,6 +493,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -370,8 +527,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -449,6 +615,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#5148-二叉树着色游戏"><span class="nav-number">1.</span> <span class="nav-text">5148. 二叉树着色游戏</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -617,6 +799,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -634,6 +820,18 @@
       <script id="dsq-count-scr" src="https://Joyce.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://ShiningJoyce.coding.me/2019/08/04/leetcode力扣第-148-场周赛/';
+          this.page.identifier = '2019/08/04/leetcode力扣第-148-场周赛/';
+          this.page.title = 'leetcode力扣第 148 场周赛';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://Joyce.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
