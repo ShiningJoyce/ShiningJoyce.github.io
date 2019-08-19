@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[leetcode力题解合集]]></title>
+    <url>%2F2019%2F08%2F19%2Fleetcode%E5%8A%9B%E6%89%A3%E9%A2%98%E8%A7%A3%E5%90%88%E9%9B%86%2F</url>
+    <content type="text"><![CDATA[101. 对称二叉树题意：给定一个二叉树，检查它是否是镜像对称的。例如，二叉树 [1,2,2,3,4,4,3] 是对称的。但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:题解：因为要求数字也要对称，所以递归的话略嫌麻烦，可以层序遍历二叉树，然后对每一层进行回文数判定易错点：wa了一发，wa在了【0，1】上，想了好久才明白我把为空的结点当成0，结果二叉树本身就含有为0的结点，后来改为-1就ac了 1234567891011121314151617181920212223242526272829303132333435363738394041424344 /** * Definition for a binary tree node. * struct TreeNode &#123; * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: vector&lt;int&gt; n[1005]; int cnt=0,height=0; void bfs(TreeNode* root,int h) &#123; if(!root) &#123; n[h].push_back(-1);//若结点为空，则算作-1 return; &#125; height=max(height,h); n[h].push_back(root-&gt;val); bfs(root-&gt;left,h+1); bfs(root-&gt;right,h+1); &#125; bool isSymmetric(TreeNode* root) &#123; int flag=1; bfs(root,1); for(int i=1;i&lt;=height;i++) &#123; int len=n[i].size(); for(int j=0,t=len-1;j&lt;=t;j++,t--) &#123; if(n[i][j]!=n[i][t]) &#123; flag=0;break; &#125; &#125; if(flag==0) break; &#125; if(flag==0) return false; return true; &#125;&#125;;]]></content>
+      <categories>
+        <category>算法及编程</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[leetcode力扣第 148 场周赛]]></title>
     <url>%2F2019%2F08%2F04%2Fleetcode%E5%8A%9B%E6%89%A3%E7%AC%AC-148-%E5%9C%BA%E5%91%A8%E8%B5%9B%2F</url>
     <content type="text"><![CDATA[5148. 二叉树着色游戏题意：给你一个二叉树，第一个人在结点X涂上自己的颜色，第二个人另外一点涂上另一个颜色，之后每个人只能涂自己已经涂过的结点的相邻结点（父结点、子结点），轮流来，谁涂得多谁赢。问能否确保第二个人赢。 解答：就是求出以X结点为分割线的三个部分（左儿子家族，右儿子，父亲那边）的结点数，确保其中一个部分大于剩下的两部分+1，或者直接大于n/2，就可以断掉那条生路，保证赢。12345678910111213141516171819202122232425262728293031323334353637383940/** * Definition for a binary tree node. * struct TreeNode &#123; * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: int getnum(TreeNode* root)//求子树结点数 &#123; if(!root) return 0; else return getnum(root-&gt;left)+getnum(root-&gt;right)+1; &#125; void dfs(TreeNode* root,int x,int &amp;ls,int &amp;rs) &#123; if(!root) return; if(root-&gt;val==x) &#123; ls=getnum(root-&gt;left); rs=getnum(root-&gt;right); &#125; else &#123; dfs(root-&gt;left,x,ls,rs); dfs(root-&gt;right,x,ls,rs); &#125; &#125; bool btreeGameWinningMove(TreeNode* root, int n, int x) &#123; int ls,rs; dfs(root,x,ls,rs); //三种划分，左儿子家族个数，右儿子，祖先那边，保证任意一种多于其他两种的和+1就必然成功 int re=n-ls-rs-1; if(ls&gt;(rs+re+1)||rs&gt;(ls+re+1)||re&gt;(ls+rs+1)) return true; else return false; //return max(max(ls,rs),n-ls-rs-1)&gt;(n&gt;&gt;1); &#125;&#125;; 测试样例：[1,3,null,2,4,null,null,5,6,7]73图示如下，显然3结点的右子树结点个数多于一半，第二个人堵住右儿子即可赢得比赛。]]></content>
@@ -23,7 +34,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[leetcode 力扣 leetcode第132场周赛]]></title>
+    <title><![CDATA[leetcode力扣第 132 场周赛]]></title>
     <url>%2F2019%2F04%2F16%2Fleetcode%E5%8A%9B%E6%89%A3%E7%AC%AC132%E5%9C%BA%E5%91%A8%E8%B5%9B%2F</url>
     <content type="text"><![CDATA[leetcode第132场周赛……心血来潮突然想试试，然后只对了第一道划水签到题…… 乖乖补题 5024. 除数博弈爱丽丝和鲍勃一起玩游戏，他们轮流行动。爱丽丝先手开局。最初，黑板上有一个数字 N 。在每个玩家的回合，玩家需要执行以下操作：选出任一 x，满足 0 &lt; x &lt; N 且 N % x == 0 。用 N - x 替换黑板上的数字 N 。如果玩家无法执行这些操作，就会输掉游戏。只有在爱丽丝在游戏中取得胜利时才返回 True，否则返回 false。假设两个玩家都以最佳状态参与游戏。 解答：草稿纸手算各种情况，反正这种简单博弈论的题首先就判断奇偶的情况就对了，然后我又思考了质数和合数的情况 事实证明，只要判断奇偶就可以了1234567class Solution &#123; public: bool divisorGame(int N) &#123; if(N % 2 == 0) return true; else return false; &#125;&#125;; 5030.节点与其祖先之间的最大差值给定二叉树的根节点 root，找出存在于不同节点 A 和 B 之间的最大值 V，其中 V = |A.val - B.val|，且 A 是 B 的祖先。（如果 A 的任何子节点之一为 B，或者 A 的任何子节点是 B 的祖先，那么我们认为 A 是 B 的祖先） 废话：这种树形结构看到我就头皮发麻，再加上搜索学的比较差劲，没怎么挣扎就放弃了，结束参考了排名前几大佬的代码，一个dfs就搞定，我真菜啊 解答：思路就是从根节点出发开始搜索，一方面比较当前节点和最大值/最小值的绝对值，一方面更新最大最小值，因为是顺着一条条支路走下去的，所以结果一定是祖先和其后代的差值12345678910111213141516171819202122232425262728 /** * Definition for a binary tree node. * struct TreeNode &#123; * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125; * &#125;; */class Solution &#123;public:void dfs(TreeNode* root,int x,int y,int &amp;ans)&#123;if(!root) return ;ans = max(ans,abs(x-root-&gt;val));ans = max(ans,abs(y-root-&gt;val));x = max(x,root-&gt;val);y = min(y,root-&gt;val);dfs(root-&gt;left,x,y,ans);dfs(root-&gt;right,x,y,ans);&#125;int maxAncestorDiff(TreeNode* root) &#123;int ans = 0;int x,y;x = y = root-&gt;val;dfs(root,x,y,ans);return ans;&#125;&#125;; 5025. 最长等差数列给定一个整数数组 A，返回 A 中最长等差子序列的长度。 解答：设置一个dp[i][j],表示以i结尾的差值为j的最长等差序列的个数，但要注意，这里不能用二维数组，因为j有可能为负数，所以最省力的做法就是unordered_map啦123456789101112131415161718class Solution &#123;public:int longestArithSeqLength(vector&lt;int&gt;&amp; A) &#123;unordered_map&lt;int,int&gt; dp[2005];int len = A.size();int ans = 2;for(int i = 0; i &lt; len; ++i)&#123;for(int j = i+1; j &lt; len; ++j)&#123;int cha = A[j]-A[i];dp[j][cha]=max(dp[j][cha],dp[i][cha]+1);ans = max(ans,dp[j][cha]+1);&#125;&#125;return ans;&#125;&#125;;]]></content>
       <categories>
