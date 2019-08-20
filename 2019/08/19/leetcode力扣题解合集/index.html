@@ -89,16 +89,17 @@
 <meta name="description" content="101. 对称二叉树题意：给定一个二叉树，检查它是否是镜像对称的。">
 <meta name="keywords" content="题解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode力题解合集">
+<meta property="og:title" content="leetcode力扣题解合集">
 <meta property="og:url" content="http://ShiningJoyce.coding.me/2019/08/19/leetcode力扣题解合集/index.html">
 <meta property="og:site_name" content="Joyce‘s Blog">
 <meta property="og:description" content="101. 对称二叉树题意：给定一个二叉树，检查它是否是镜像对称的。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://shiningjoyce.coding.me/images/leetcode101_1.png">
 <meta property="og:image" content="http://shiningjoyce.coding.me/images/leetcode101_2.png">
-<meta property="og:updated_time" content="2019-08-19T07:54:15.673Z">
+<meta property="og:image" content="http://shiningjoyce.coding.me/images/leetcode206.png">
+<meta property="og:updated_time" content="2019-08-20T08:51:10.664Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode力题解合集">
+<meta name="twitter:title" content="leetcode力扣题解合集">
 <meta name="twitter:description" content="101. 对称二叉树题意：给定一个二叉树，检查它是否是镜像对称的。">
 <meta name="twitter:image" content="http://shiningjoyce.coding.me/images/leetcode101_1.png">
 
@@ -136,7 +137,7 @@
 
 
 
-  <title>leetcode力题解合集 | Joyce‘s Blog</title>
+  <title>leetcode力扣题解合集 | Joyce‘s Blog</title>
   
 
 
@@ -332,7 +333,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">leetcode力题解合集</h1>
+          <h1 class="post-title" itemprop="name headline">leetcode力扣题解合集</h1>
         
 
         <div class="post-meta">
@@ -419,8 +420,36 @@
       
 
       
-        <h2 id="101-对称二叉树"><a href="#101-对称二叉树" class="headerlink" title="101. 对称二叉树"></a>101. 对称二叉树</h2><p>题意：给定一个二叉树，检查它是否是镜像对称的。<br><a id="more"></a><br>例如，二叉树 [1,2,2,3,4,4,3] 是对称的。<br><img src="/images/leetcode101_1.png" alt><br>但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:<br><img src="/images/leetcode101_2.png" alt><br>题解：因为要求数字也要对称，所以递归的话略嫌麻烦，可以层序遍历二叉树，然后对每一层进行回文数判定<br>易错点：wa了一发，wa在了【0，1】上，想了好久才明白我把为空的结点当成0，结果二叉树本身就含有为0的结点，后来改为-1就ac了</p>
+        <h2 id="101-对称二叉树"><a href="#101-对称二叉树" class="headerlink" title="101. 对称二叉树"></a>101. 对称二叉树</h2><p>题意：给定一个二叉树，检查它是否是镜像对称的。<br><a id="more"></a><br>例如，二叉树 [1,2,2,3,4,4,3] 是对称的。<br><img src="/images/leetcode101_1.png" alt><br>但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:<br><img src="/images/leetcode101_2.png" alt><br>题解：因为要求数字也要对称，所以递归的话略嫌麻烦，可以层序遍历二叉树，然后对每一层进行回文数判定</p>
+<p>易错点：wa了一发，wa在了【0，1】上，想了好久才明白我把为空的结点当成0，结果二叉树本身就含有为0的结点，后来改为-1就ac了</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"> /**</span><br><span class="line"> * Definition for a binary tree node.</span><br><span class="line"> * struct TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode *left;</span><br><span class="line"> *     TreeNode *right;</span><br><span class="line"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; n[1005];</span><br><span class="line">    int cnt=0,height=0;</span><br><span class="line">    void bfs(TreeNode* root,int h)</span><br><span class="line">    &#123;</span><br><span class="line">        if(!root)</span><br><span class="line">        &#123;</span><br><span class="line">            n[h].push_back(-1);//若结点为空，则算作-1</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        height=max(height,h);</span><br><span class="line">        n[h].push_back(root-&gt;val);</span><br><span class="line">        bfs(root-&gt;left,h+1);</span><br><span class="line">        bfs(root-&gt;right,h+1);</span><br><span class="line">    &#125;</span><br><span class="line">    bool isSymmetric(TreeNode* root) &#123;</span><br><span class="line">        int flag=1;</span><br><span class="line">        bfs(root,1);</span><br><span class="line">        for(int i=1;i&lt;=height;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            int len=n[i].size();</span><br><span class="line">            for(int j=0,t=len-1;j&lt;=t;j++,t--)</span><br><span class="line">            &#123;</span><br><span class="line">                if(n[i][j]!=n[i][t])</span><br><span class="line">                &#123;</span><br><span class="line">                    flag=0;break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            if(flag==0) break;</span><br><span class="line">        &#125;</span><br><span class="line">        if(flag==0) return false;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="206-反转链表"><a href="#206-反转链表" class="headerlink" title="206. 反转链表"></a>206. 反转链表</h2><p>题意：反转一个单链表。</p>
+<p>示例:</p>
+<p>输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL<br>输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</p>
+<p>解答：<br>1.迭代法（设置head、first、target三个指针）<br>看了题解，别人画的图，侵删<br><img src="/images/leetcode206.png" alt></p>
+<p>注意：leetcode的题都有链表为空的情况，需要根据写法好好判断，在这里wa了不少发<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* reverseList(ListNode* head) &#123;</span><br><span class="line">        ListNode* first;</span><br><span class="line">        ListNode* target;</span><br><span class="line">        if(!head||!head-&gt;next) return head;</span><br><span class="line">        first=head;target=head-&gt;next;</span><br><span class="line">        while(target)</span><br><span class="line">        &#123;</span><br><span class="line">            first-&gt;next=target-&gt;next;</span><br><span class="line">            target-&gt;next=head;</span><br><span class="line">            head=target;</span><br><span class="line">            target=first-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        return head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>2.递归法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* reverseList(ListNode* head) &#123;</span><br><span class="line">        if(!head||!head-&gt;next) return head;</span><br><span class="line">        ListNode* tem=reverseList(head-&gt;next);</span><br><span class="line">        head-&gt;next-&gt;next=head;</span><br><span class="line">        head-&gt;next=NULL;</span><br><span class="line">        return tem;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>3.重建链表法<br>用数组存储原链表的值，再逆序存回去。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">     int n[10005];</span><br><span class="line">    ListNode* reverseList(ListNode* head) &#123;</span><br><span class="line">        if(!head||!head-&gt;next) return head;</span><br><span class="line">        ListNode* tem=head;</span><br><span class="line">        int cnt=1;</span><br><span class="line">        while(head)</span><br><span class="line">        &#123;</span><br><span class="line">            n[cnt++]=head-&gt;val;</span><br><span class="line">            head=head-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        tem-&gt;val=n[cnt-1];</span><br><span class="line">        head=tem;</span><br><span class="line">        for(int i=cnt-2;i&gt;0;i--)</span><br><span class="line">        &#123;</span><br><span class="line">            tem-&gt;next-&gt;val=n[i];</span><br><span class="line">            tem=tem-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        return head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>这一顿折腾，对链表理解深刻了一丢丢！</p>
+<p>struct TreeNode{<br>    int val;<br>    TreeNode <em>left;<br>    TreeNode </em>right;<br>    TreeNode(int x) : val(x),left(NULL),right(NULL) {}<br>};</p>
+<p>建树的两种方法<br>C语言<br>struct TreeNode <em>root=(struct TreeNode </em>)malloc(sizeof(struct TreeNode));<br>memset(root,0,sizeof(sizeof(struct TreeNode)));</p>
+<p>C++<br>TreeNode* root=new TreeNode(int x);</p>
+<h2 id="226-翻转二叉树"><a href="#226-翻转二叉树" class="headerlink" title="226. 翻转二叉树"></a>226. 翻转二叉树</h2><p>题意：<br>翻转一棵二叉树。</p>
+<p>示例：</p>
+<p>输入：</p>
+<pre><code>4
+</code></pre><p>   /   \<br>  2     7<br> / \   / \<br>1   3 6   9<br>输出：</p>
+<pre><code>4
+</code></pre><p>   /   \<br>  7     2<br> / \   / \<br>9   6 3   1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    TreeNode* invertTree(TreeNode* root) &#123;</span><br><span class="line">        if(!root) return root;</span><br><span class="line">        TreeNode* tem=root-&gt;left;//暂存右子树</span><br><span class="line">        root-&gt;left=root-&gt;right;//右子树赋给左子树</span><br><span class="line">        root-&gt;right=tem;</span><br><span class="line">        invertTree(root-&gt;left);//递归下去</span><br><span class="line">        invertTree(root-&gt;right);</span><br><span class="line">        return root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="617-合并二叉树"><a href="#617-合并二叉树" class="headerlink" title="617. 合并二叉树"></a>617. 合并二叉树</h2><p>题意：给定两个二叉树，想象当你将它们中的一个覆盖到另一个上时，两个二叉树的一些节点便会重叠。</p>
+<p>你需要将他们合并为一个新的二叉树。合并的规则是如果两个节点重叠，那么将他们的值相加作为节点合并后的新值，否则不为 NULL 的节点将直接作为新二叉树的节点。</p>
+<p>示例 1:</p>
+<p>输入:<br>    Tree 1                     Tree 2<br>          1                         2<br>         / \                       / \<br>        3   2                     1   3<br>       /                           \   \<br>      5                             4   7<br>输出:<br>合并后的树:<br>         3<br>        / \<br>       4   5<br>      / \   \<br>     5   4   7<br>注意: 合并必须从两个树的根节点开始。</p>
+<p>解答：感觉挺简单的，而且磨了十几分钟提交也是对的，但是我看了一哈别人的解答意识到我写的可能是假递归？<br>我的答案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    TreeNode* mergeTrees(TreeNode* t1, TreeNode* t2) &#123;</span><br><span class="line">        if(!t1&amp;&amp;!t2) return NULL;</span><br><span class="line">        if(!t2) return t1;</span><br><span class="line">        if(!t1) return t2;</span><br><span class="line">        t1-&gt;val+=t2-&gt;val;</span><br><span class="line">        if(!t1-&gt;left&amp;&amp;t2-&gt;left) &#123; t1-&gt;left=t2-&gt;left;t2-&gt;left=NULL;&#125;</span><br><span class="line">        if(!t1-&gt;right&amp;&amp;t2-&gt;right) &#123; t1-&gt;right=t2-&gt;right;t2-&gt;right=NULL;&#125;</span><br><span class="line">        mergeTrees(t1-&gt;left,t2-&gt;left);</span><br><span class="line">        mergeTrees(t1-&gt;right,t2-&gt;right);</span><br><span class="line">        return t1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>目前最简短版本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var mergeTrees = function(t1, t2) &#123;</span><br><span class="line">    if(t1 &amp;&amp; t2)&#123;</span><br><span class="line">        t1.val += t2.val;</span><br><span class="line">        t1.left = mergeTrees(t1.left,t2.left);</span><br><span class="line">        t1.right = mergeTrees(t1.right,t2.right);</span><br><span class="line">    &#125; </span><br><span class="line">    return t1 || t2;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>跟别人一比我的递归写的好奇怪啊，继续摸索www</p>
 
       
     </div>
@@ -625,7 +654,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#101-对称二叉树"><span class="nav-number">1.</span> <span class="nav-text">101. 对称二叉树</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#101-对称二叉树"><span class="nav-number">1.</span> <span class="nav-text">101. 对称二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#206-反转链表"><span class="nav-number">2.</span> <span class="nav-text">206. 反转链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#226-翻转二叉树"><span class="nav-number">3.</span> <span class="nav-text">226. 翻转二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#617-合并二叉树"><span class="nav-number">4.</span> <span class="nav-text">617. 合并二叉树</span></a></li></ol></div>
             
 
           </div>
@@ -825,7 +854,7 @@
         var disqus_config = function () {
           this.page.url = 'http://ShiningJoyce.coding.me/2019/08/19/leetcode力扣题解合集/';
           this.page.identifier = '2019/08/19/leetcode力扣题解合集/';
-          this.page.title = 'leetcode力题解合集';
+          this.page.title = 'leetcode力扣题解合集';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://Joyce.disqus.com/embed.js';
